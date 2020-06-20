@@ -1,4 +1,5 @@
 require_relative 'spec_helper'
+require "pry"
 
 describe Show do
 
@@ -30,7 +31,7 @@ describe Show do
 
     it "has a season column and attribute added from another migration file" do
       filepath = File.expand_path(File.dirname(File.dirname(__FILE__))) + "/db/migrate"
-      expect(Dir.entries(filepath)).to include("002_add_season_to_shows.rb")
+      expect(Dir.entries(filepath)).to include("20190412195428_add_column.rb")
     end
   end
 
@@ -42,6 +43,7 @@ describe Show do
 
   describe "::most_popular_show" do
     it "returns the tv show with the highest rating" do
+
       expect(Show.most_popular_show).to eq(@rick_and_morty)
     end
   end
